@@ -3,8 +3,8 @@
 PROJECT="at_1"
 DIR=$HOME/"$PROJECT"
 ${PRODUCTION:=true}
-apt update
-apt install ffmpeg
+sudo apt update
+sudo apt install ffmpeg
 cd $HOME
 rm -rf $DIR
 echo $PROJECT
