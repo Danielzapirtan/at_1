@@ -14,8 +14,8 @@ if ! $PRODUCTION; then
 	brew install ffmpeg-full
 fi
 python$VER -m pip install --upgrade pip
-pip install -r requirements.txt
-pip install --force-reinstall "faster-whisper @ https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.tar.gz"
-python3 app.py $HOME/default.m4a
+pip$VER install -r requirements.txt
+pip$VER install --force-reinstall "faster-whisper @ https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.tar.gz"
+python$VER app.py $HOME/default.m4a
 cat transcription.txt
 
