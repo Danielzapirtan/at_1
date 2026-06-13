@@ -4,7 +4,11 @@ PROJECT="at_1"
 DIR=$HOME/"$PROJECT"
 
 cd $HOME
-test -d $VENV || python -m venv venv
+if command -v brew; then
+	brew install python@3.12
+	brew install ffmpeg
+fi
+test -d $VENV || python3.12 -m venv venv
 . venv/bin/activate &>/dev/null || true
 rm -rf $DIR
 echo $PROJECT
