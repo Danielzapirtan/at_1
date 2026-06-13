@@ -8,8 +8,3 @@ ffmpeg
 # Optional: for better audio format support
 librosa
 soundfile
-
-# Audio Transcription Tool Requirements
-# Core transcription library
-faster-whisper
-
