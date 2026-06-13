@@ -20,6 +20,7 @@ else
 	git clone https://github.com/Danielzapirtan/"$PROJECT"
 	cd $DIR
 fi
+pithon -m pip install --upgrade pip
 pip install -r requirements.txt
 if $MACOS; then
 	pip install --force-reinstall "faster-whisper @ https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.tar.gz"
