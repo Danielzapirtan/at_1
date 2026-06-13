@@ -12,6 +12,8 @@ if ! $PRODUCTION; then
 	brew upgrade
 	brew install python@$VER
 	brew install ffmpeg-full
+	python3 -m venv venv
+	. venv/bin/activate
 fi
 python$VER -m pip install --upgrade pip
 pip$VER install -r requirements.txt
