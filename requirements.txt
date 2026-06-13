@@ -1,5 +1,5 @@
 # Additional dependencies that might be needed
-setuptools<82
+setuptools
 torch
 torchaudio
 numpy
