@@ -19,7 +19,7 @@ else
 	git clone https://github.com/Danielzapirtan/"$PROJECT"
 	cd $DIR
 fi
-pip install -r requirements.txt
+pip install -r --force-reinstall requirements.txt
 pip install --force-reinstall "faster-whisper @ https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.tar.gz"
 python3 app.py $HOME/default.m4a
 cat transcription.txt
