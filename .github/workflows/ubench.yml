@@ -3,19 +3,19 @@ name: Utranscript
 on:
   workflow_dispatch:
 
-jobs:
-  bench:
-    name: Bench Job
+    jobs:
+      bench:
+        name: Bench Job
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Execution
         env:
-						HF_TOKEN : ${{ secrets.HF_TOKEN }}
+          HF_TOKEN : ${{ secrets.HF_TOKEN }}
         run: |
-						cp default.m4a ~
-						PRODUCTION=false bash test.sh
+          cp default.m4a ~
+          PRODUCTION=false bash test.sh
 
