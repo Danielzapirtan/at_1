@@ -17,6 +17,7 @@ python$VER -m pip install --upgrade pip
 pip$VER install -r requirements.txt
 pip$VER install --force-reinstall "faster-whisper @ https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.tar.gz"
 if $PRODUCTION; then
+	rm -rf $DIR
 	git clone https://github.com/Danielzapirtan/at_1.git
 	cd $DIR
 fi
