@@ -1,6 +1,7 @@
 PROJECT="at_1"
 DIR=$HOME/"$PROJECT"
 MACOS=$(uname | grep -q Darwin)
+echo $MACOS
 ${PRODUCTION:=true}
 
 if $MACOS; then
