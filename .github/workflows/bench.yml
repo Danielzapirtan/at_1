@@ -1,4 +1,4 @@
-name: Utranscript
+name: Transcript
 
 on:
   workflow_dispatch:
