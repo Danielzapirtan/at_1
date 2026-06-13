@@ -1,5 +1,3 @@
-#! /bin/bash
-
 PROJECT="at_1"
 DIR=$HOME/"$PROJECT"
 MACOS=$(uname | grep -q Darwin)
@@ -9,10 +7,13 @@ if $MACOS; then
 	if ! $PRODUCTION; then
 		export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
 		command -v brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+		brew update
 		brew install python@3.11
 		brew install ffmpeg-full
 	fi
 else
+	apt update
+	apt install ffmpeg
 	cd $HOME
 	rm -rf $DIR
 	echo $PROJECT
@@ -20,7 +21,11 @@ else
 	cd $DIR
 fi
 pip install -r requirements.txt
-pip install --force-reinstall "faster-whisper @ https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.tar.gz"
+if $MACOS; then
+	pip install --force-reinstall "faster-whisper @ https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.tar.gz"
+else
+	pip install faster-whisper
+fi
 python3 app.py $HOME/default.m4a
 cat transcription.txt
 
