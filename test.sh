@@ -2,9 +2,9 @@
 
 PROJECT="at_1"
 DIR=$HOME/"$PROJECT"
+PRODUCTION=$(uname | grep -q Darwin)
 
 cd $HOME
-PRODUCTION=$(uname | grep -q Darwin)
 if $PRODUCTION; then
 	command -v brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew install python@3.12
