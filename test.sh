@@ -2,21 +2,23 @@
 
 PROJECT="at_1"
 DIR=$HOME/"$PROJECT"
-PRODUCTION=$(uname | grep -q Darwin)
+MACOS=$(uname | grep -q Darwin)
+${PRODUCTION:=true}
 
-cd $HOME
-if $PRODUCTION; then
-	export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
-	command -v brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	brew install python@3.12
-	brew install ffmpeg
+if $MACOS; then
+	if ! $PRODUCTION; then
+		export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
+		command -v brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+		brew install python@3.12
+		brew install ffmpeg
+	fi
+else
+	cd $HOME
+	rm -rf $DIR
+	echo $PROJECT
+	git clone https://github.com/Danielzapirtan/"$PROJECT"
+	cd $DIR
 fi
-test -d $VENV || python3.12 -m venv venv
-. venv/bin/activate &>/dev/null || true
-rm -rf $DIR
-echo $PROJECT
-git clone https://github.com/Danielzapirtan/"$PROJECT"
-cd $DIR
 pip install -r requirements.txt
 python3 app.py $HOME/default.m4a
 cat transcription.txt
