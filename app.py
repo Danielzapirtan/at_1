@@ -61,7 +61,7 @@ def get_user_input():
     if not path:
         error(5)
     language = "ro"
-    model_size = "medium"
+    model_size = "large-v3"
     return path, language, model_size
 
 def save_transcription(text, file_path):
