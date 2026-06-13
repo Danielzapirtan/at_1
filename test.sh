@@ -8,6 +8,7 @@ if $MACOS; then
 		export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
 		command -v brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 		brew update
+		brew upgrade
 		brew install python@3.11
 		brew install ffmpeg-full
 	fi
