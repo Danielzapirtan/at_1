@@ -4,7 +4,9 @@ PROJECT="at_1"
 DIR=$HOME/"$PROJECT"
 
 cd $HOME
-if command -v brew; then
+PRODUCTION=$(uname | grep -q Darwin)
+if $PRODUCTION; then
+	command -v brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew install python@3.12
 	brew install ffmpeg
 fi
