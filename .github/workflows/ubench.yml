@@ -14,7 +14,7 @@ steps:
 
   - name: Execution
     env:
-      HF_TOKEN : ${{ secrets.HF_TOKEN }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
     run: |
       cp default.m4a ~
       PRODUCTION=false bash test.sh
