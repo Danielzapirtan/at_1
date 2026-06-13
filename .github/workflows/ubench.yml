@@ -13,9 +13,9 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Execution
-					env:
+        env:
 						HF_TOKEN : ${{ secrets.HF_TOKEN }}
-					run: |
+        run: |
 						cp default.m4a ~
 						PRODUCTION=false bash test.sh
 
