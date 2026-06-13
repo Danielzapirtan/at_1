@@ -5,7 +5,7 @@ DIR=$HOME/"$PROJECT"
 
 cd $HOME
 test -d $VENV || python -m venv venv
-. venv/bin/ activate &>/dev/null || true
+. venv/bin/activate &>/dev/null || true
 rm -rf $DIR
 echo $PROJECT
 git clone https://github.com/Danielzapirtan/"$PROJECT"
